@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TouchableOpacity, Alert } from 'react-native';
-import { Center, ScrollView, VStack, Skeleton, Text, Heading } from 'native-base';
+import { Center, ScrollView, VStack, Skeleton, Text, Heading, useToast } from 'native-base';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
 
@@ -14,6 +14,8 @@ const PHOTO_SIZE = 33;
 export function Profile() {
   const [photoIsLoading, setPhotoIsLoading] = useState(false);
   const [userPhoto, setUserPhoto] = useState('https://github.com/savionicodemos.png');
+
+  const toast = useToast()
 
   async function handleUserPhotoSelect() {
     setPhotoIsLoading(true);
@@ -32,10 +34,14 @@ export function Profile() {
       if (photoSelected.assets[0].uri) {
         const photoUri = photoSelected.assets[0].uri;
         const photoInfo = await FileSystem.getInfoAsync(photoUri, { size: true }) as { size: number };
-        console.log(photoInfo);
 
         if (photoInfo.size && (photoInfo.size / 1024 / 1024) > 5) {
-          return Alert.alert('Tamanho inválido', 'A imagem selecionada deve ter um tamanho máximo de 5Mb')
+          toast.show({
+            title: 'Essa imagem é muito grande. Escolha uma de até 5MB',
+            placement: 'top',
+            bgColor: 'red.500'
+          })
+          return;
         }
 
         setUserPhoto(photoUri);
