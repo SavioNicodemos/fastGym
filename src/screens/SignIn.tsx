@@ -41,6 +41,8 @@ export function SignIn() {
 
         <Button title="Acessar" />
       </Center>
+
+      <Button title="Acessar" variant='outline' />
     </VStack>
   );
 }
