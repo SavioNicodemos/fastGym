@@ -4,7 +4,7 @@ export const Input = ({ ...rest }: IInputProps) => {
   return (
     <NativeBaseInput
       bg="gray.700"
-      h='16'
+      h={14}
       px={4}
       borderWidth={0}
       fontSize='md'
