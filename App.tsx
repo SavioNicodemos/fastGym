@@ -1,19 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { NativeBaseProvider, Box } from 'native-base';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import { Loading } from '@components/Loading';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#202024' }}>
+    <NativeBaseProvider>
       <StatusBar
         style='light'
         backgroundColor='transparent'
         translucent
       />
 
-      {fontsLoaded ? <Text>Open up App.tsx to start working on your app!</Text> : <View />}
+      {fontsLoaded ? <View /> : <Loading />}
 
-    </View>
+    </NativeBaseProvider>
   );
 }
