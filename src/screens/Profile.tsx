@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Alert } from 'react-native';
 import { Center, ScrollView, VStack, Skeleton, Text, Heading } from 'native-base';
 import * as ImagePicker from 'expo-image-picker';
+import * as FileSystem from 'expo-file-system';
 
 import { ScreenHeader } from '@components/ScreenHeader';
 import { UserPhoto } from '@components/UserPhoto';
@@ -29,7 +30,15 @@ export function Profile() {
       }
 
       if (photoSelected.assets[0].uri) {
-        setUserPhoto(photoSelected.assets[0].uri);
+        const photoUri = photoSelected.assets[0].uri;
+        const photoInfo = await FileSystem.getInfoAsync(photoUri, { size: true }) as { size: number };
+        console.log(photoInfo);
+
+        if (photoInfo.size && (photoInfo.size / 1024 / 1024) > 5) {
+          return Alert.alert('Tamanho inválido', 'A imagem selecionada deve ter um tamanho máximo de 5Mb')
+        }
+
+        setUserPhoto(photoUri);
       }
 
     } catch (error) {
