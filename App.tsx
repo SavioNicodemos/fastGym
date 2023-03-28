@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { NativeBaseProvider, Box } from 'native-base';
+import { NativeBaseProvider } from 'native-base';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
+
+import { AuthContextProvider } from '@contexts/Authcontext';
 
 import { THEME } from './src/theme';
 import { Loading } from '@components/Loading';
@@ -16,7 +18,9 @@ export default function App() {
         translucent
       />
 
-      {fontsLoaded ? <Routes /> : <Loading />}
+      <AuthContextProvider>
+        {fontsLoaded ? <Routes /> : <Loading />}
+      </AuthContextProvider>
 
     </NativeBaseProvider>
   );
