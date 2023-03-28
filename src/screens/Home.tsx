@@ -41,7 +41,7 @@ export function Home() {
   async function fetchExercisesByGroup() {
     try {
       const { data } = await api.get(`/exercises/bygroup/${groupSelected}`);
-      console.log(data)
+      setExercises(data);
     } catch (error) {
       const isAppError = error instanceof AppError;
       const title = isAppError ? error.message : 'Não foi possível carregar os exercícios';
@@ -98,7 +98,10 @@ export function Home() {
           data={exercises}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <ExerciseCard onPress={handleOpenExerciseDetails} />
+            <ExerciseCard
+              data={item}
+              onPress={handleOpenExerciseDetails}
+            />
           )}
           showsVerticalScrollIndicator={false}
           _contentContainerStyle={{
