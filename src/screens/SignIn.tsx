@@ -25,7 +25,7 @@ export function SignIn() {
 
   const navigation = useNavigation<AuthNavigatorRoutesProps>();
 
-  const { control, handleSubmit, formState: { errors } } = useForm<FormData>()
+  const { control, handleSubmit, formState: { errors, isSubmitting }, } = useForm<FormData>()
 
   function handleNewAccount() {
     navigation.navigate('signUp');
@@ -100,7 +100,11 @@ export function SignIn() {
             )}
           />
 
-          <Button title="Acessar" onPress={handleSubmit(handleSignIn)} />
+          <Button
+            title="Acessar"
+            isLoading={isSubmitting}
+            onPress={handleSubmit(handleSignIn)}
+          />
         </Center>
 
         <Center mt={24}>
