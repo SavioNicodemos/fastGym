@@ -81,7 +81,6 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     }
   }
 
-
   async function loadUserData() {
     try {
       setIsLoadingUserStorageData(true);
@@ -101,6 +100,14 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
 
   useEffect(() => {
     loadUserData()
+  }, [])
+
+  useEffect(() => {
+    const subscribe = api.registerInterceptTokenManager(signOut);
+
+    return () => {
+      subscribe();
+    }
   }, [])
 
   return (
