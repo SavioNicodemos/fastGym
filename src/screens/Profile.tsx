@@ -89,7 +89,15 @@ export function Profile() {
           return;
         }
 
-        setUserPhoto(photoUri);
+        const fileExtension = photoSelected.assets[0].uri.split('.').pop();
+
+        const photoFile = {
+          name: `${user.name}.${fileExtension}`.toLowerCase(),
+          uri: photoSelected.assets[0].uri,
+          type: `${photoSelected.assets[0].type}/${fileExtension}`
+        }
+
+        console.log(photoFile);
       }
 
     } catch (error) {
