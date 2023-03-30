@@ -1,7 +1,8 @@
 <h1 align="center">Welcome to Fast Gym App! 🚀🏋🏽‍♂️</h1>
 
 <p align="center">
-  <img src=".github/assets/user-experience.gif" alt="Demo of Fast Gym" style="width: 300px;"/>
+  <img src="https://user-images.githubusercontent.com/22616441/228695849-8c89a005-732f-4660-9ff0-5b3b87c8aaaa.gif" width="30%"></img>
+  <img src="https://user-images.githubusercontent.com/22616441/228695933-49cd634e-59cd-4072-a7b0-9c5dbfa76ba2.gif" width="30%"></img> 
 </p>
 
 ## Are you ready to get fit and have fun?
@@ -14,7 +15,15 @@ And let's not forget the three tabs at the bottom of the app: Home, History, and
 
 So what are you waiting for? Use FastGym now, and let's start your fitness journey together!
 
-## Technical Skills
+# Gallery
+<img src="https://user-images.githubusercontent.com/22616441/228694611-68762eb7-1917-4db2-b0e2-5270a4605657.PNG" width="30%"></img>
+<img src="https://user-images.githubusercontent.com/22616441/228694609-5c26eeb5-6293-40db-9855-ef347803869e.PNG" width="30%"></img>
+<img src="https://user-images.githubusercontent.com/22616441/228694606-01b9dc39-f010-4449-b7ab-1b92ecbfc647.PNG" width="30%"></img>
+<img src="https://user-images.githubusercontent.com/22616441/228694607-040dda55-b756-420e-9bab-0ae5b5b4c7ea.PNG" width="30%"></img>
+<img src="https://user-images.githubusercontent.com/22616441/228694603-3b10b13f-ac88-4b55-af31-89020e810bd8.PNG" width="30%"></img>
+<img src="https://user-images.githubusercontent.com/22616441/228694599-4be24705-3cfb-48b6-8acc-99e368c33441.PNG" width="30%"></img>
+
+# Technical Skills
 
 ### Navigation
 All navigation in the app was made with [React Navigation](https://reactnavigation.org/) using Stack Navigator for Authentication routes and Bottom Tabs for Authenticated routes, on Bottom Tabs 
